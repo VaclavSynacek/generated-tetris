@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tetris</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <div class="left-panel">
+            <div class="info-box hold-box">
+                <h2>HOLD</h2>
+                <canvas id="hold-canvas" width="120" height="120"></canvas>
+            </div>
+             <div class="info-box stats-box">
+                <h2>STATS</h2>
+                <p>T-Spins: <span id="t-spins">0</span></p>
+                <p>Tetrises: <span id="tetrises">0</span></p>
+                <p>Combo: <span id="combo">0</span>x</p>
+                <p>B2B: <span id="b2b">0</span>x</p>
+            </div>
+        </div>
+
+        <div class="playfield-container">
+            <canvas id="game-canvas" width="300" height="600"></canvas>
+             <div id="message-overlay" class="message-overlay" style="display: none;">
+                <p id="message-text"></p>
+                <button id="restart-button" style="display: none;">Play Again</button>
+            </div>
+        </div>
+
+        <div class="right-panel">
+            <div class="info-box score-box">
+                <h2>SCORE</h2>
+                <p id="score">0</p>
+            </div>
+            <div class="info-box level-box">
+                <h2>LEVEL</h2>
+                <p id="level">1</p>
+            </div>
+             <div class="info-box lines-box">
+                <h2>LINES</h2>
+                <p id="lines">0</p>
+                <p class="goal-text">Goal: <span id="goal">10</span></p>
+            </div>
+            <div class="info-box next-box">
+                <h2>NEXT</h2>
+                <canvas id="next-canvas" width="120" height="360"></canvas> <!-- Adjusted height for multiple previews -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Audio Elements -->
+    <audio id="move-sound" src="sounds/move.wav" preload="auto"></audio>
+    <audio id="rotate-sound" src="sounds/rotate.wav" preload="auto"></audio>
+    <audio id="lock-sound" src="sounds/lock.wav" preload="auto"></audio>
+    <audio id="clear-line-sound" src="sounds/clear.wav" preload="auto"></audio>
+    <audio id="tetris-sound" src="sounds/tetris.wav" preload="auto"></audio>
+    <audio id="level-up-sound" src="sounds/levelup.wav" preload="auto"></audio>
+    <audio id="game-over-sound" src="sounds/gameover.wav" preload="auto"></audio>
+    <audio id="hold-sound" src="sounds/hold.wav" preload="auto"></audio>
+    <audio id="hard-drop-sound" src="sounds/harddrop.wav" preload="auto"></audio>
+    <audio id="tspin-sound" src="sounds/tspin.wav" preload="auto"></audio>
+    <audio id="bgm" src="sounds/korobeiniki.mp3" loop preload="auto"></audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
